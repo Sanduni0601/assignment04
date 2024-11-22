@@ -2,3 +2,22 @@ table{
     width:100%;
     border-color: orangered;
 }
+
+.grid{
+    display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.grid-item{
+    cursor: pointer;
+  border: 2px solid #ccc;
+  padding: 5px;
+  transition: transform 0.2s;
+}
+
+.images{
+    display: flex;
+  justify-content: center;
+  background-color: aqua;
+}
