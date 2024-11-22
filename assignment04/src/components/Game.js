@@ -21,8 +21,8 @@ export default function Game(){
             <table border = '1'>
                 <thead>
                     <tr>
-                        <td width='25%'>Result</td>
-                        <td width='25%'>Animal Name</td>
+                        <td width='20%'>Result</td>
+                        <td width='20%'>Animal Name</td>
                         <td width='40%'>Select the Animal</td>
                         </tr>
                 </thead>
