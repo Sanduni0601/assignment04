@@ -1,7 +1,20 @@
 import '../css/Game.css';
 import { animals } from '../data/AnimalsDb';
+import React,{useState,useEffect} from 'react';
 
 export default function Game(){
+    const [randomAnimal, setRandomAnimal] = useState("");
+    const [result, setResult] = useState("");
+
+    useEffect(() => {
+        const randomIndex = Math.floor(Math.random() * animals.length);
+        setRandomAnimal(animals[randomIndex].name);
+    }, []);
+
+    const handleAnimalClick = (selectedAnimal) => {
+        setResult(selectedAnimal === randomAnimal ? "WIN" : "LOSE");
+    };
+
     return(
         <div className = 'Game'>
             <h1>ANIMAL MATCHING GAME</h1>
@@ -15,14 +28,21 @@ export default function Game(){
                 </thead>
                 <tbody>
                     <tr>
-                        <td className = 'result'></td>
-                        <td className = 'animal_name'></td>
+                        <td className = 'result'>
+                        <h2 style={{ color: result === "WIN" ? "green" : "red" }}>
+                                {result || ""}
+                            </h2>
+                        </td>
+                        <td className = 'animal_name'>
+                        <h3>{randomAnimal}</h3>
+                        </td>
                         <td className = 'images'>
                             <div className = 'grid'>
                             {animals.map((animal, index) => (
                                     <div
                                         key={index}
                                         className="grid-item"
+                                        onClick={() => handleAnimalClick(animal.name)}
                                         
                                     >
                                         <img
